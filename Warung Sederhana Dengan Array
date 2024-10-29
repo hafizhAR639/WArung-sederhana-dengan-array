@@ -1,0 +1,73 @@
+import java.util.Scanner;
+
+public class WarungMakan {
+
+    public static void main(String[] args) {
+        Scanner s = new Scanner(System.in);
+        int pilih = 0, indeks = 0, jumlah;
+        String makanan[] = new String[5];
+        int harga[] = new int[5];
+        int qty[] = new int[5];
+        int total[] = new int[5];
+        int grandtotal = 0;
+
+        do {
+            System.out.println("\n=Warung Makan Sederhana=");
+            System.out.println("1.Nasi Goreng\n2.Mie Goreng\n3.Sate Ayam");
+            System.out.println("4.Selesai");
+            System.out.print("Pilih = ");
+            pilih = s.nextInt();
+            switch (pilih) {
+                case 1:
+                    makanan[indeks] = "Nasi Goreng";
+                    harga[indeks] = 20000;
+                    System.out.print("Jumlah Porsi = ");
+                    jumlah = s.nextInt();
+                    qty[indeks] = jumlah;
+                    total[indeks] = harga[indeks] * qty[indeks];
+                    grandtotal += total[indeks];
+                    indeks++;
+                    break;
+                case 2:
+                    makanan[indeks] = "Mie Goreng";
+                    harga[indeks] = 15000;
+                    System.out.print("Jumlah Porsi = ");
+                    jumlah = s.nextInt();
+                    qty[indeks] = jumlah;
+                    total[indeks] = harga[indeks] * qty[indeks];
+                    grandtotal += total[indeks];
+                    indeks++;
+                    break;
+                case 3:
+                    makanan[indeks] = "Sate Ayam";
+                    harga[indeks] = 25000;
+                    System.out.print("Jumlah Porsi = ");
+                    jumlah = s.nextInt();
+                    qty[indeks] = jumlah;
+                    total[indeks] = harga[indeks] * qty[indeks];
+                    grandtotal += total[indeks];
+                    indeks++;
+                    break;
+                case 4:
+                    System.out.println("Terima kasih");
+                    break;
+                default:
+                    System.out.println("Pilihan tidak valid. Silakan coba lagi.");
+                    break;
+            }
+
+            if (pilih >= 1 && pilih <= 3) {
+                System.out.println("Daftar Pembelian:");
+                for (int i = 0; i < indeks; i++) {
+                    System.out.print((i + 1) + ". " + makanan[i]);
+                    System.out.print(" [Harga: Rp." + harga[i] + "]");
+                    System.out.print(" {Jumlah: " + qty[i] + "}");
+                    System.out.println(" [Total: Rp." + total[i] + "]");
+                }
+            }
+
+        } while (pilih != 4);
+
+        System.out.println("Grand Total: Rp." + grandtotal);
+    }
+}
